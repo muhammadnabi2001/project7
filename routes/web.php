@@ -8,3 +8,4 @@ Route::get('/', function () {
 });
 Route::get('/',[UniversitetController::class,'index']);
 Route::get('/createuniver',[UniversitetController::class,'create']);
+Route::delete('/universitet/{id}',[UniversitetController::class,'delete']);

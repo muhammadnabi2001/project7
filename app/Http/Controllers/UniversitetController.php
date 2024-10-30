@@ -23,6 +23,13 @@ class UniversitetController extends Controller
         $universitet->name=$request->name;
         $universitet->save();
         $universitets=Universitet::all();
-        return view('index',['universitets'=>$universitets]);
+        return redirect('/')->with('success', "Ma'lumot muvaqiyatli qo'shildi");
+    }
+    public function delete(int $id)
+    {
+        $universitet=Universitet::find($id);
+        //dd($universitet);
+        $universitet->delete();
+        return redirect('/')->with('delete', "Ma'lumot muvafaqiyatli o'chirildi");
     }
 }

@@ -6,9 +6,9 @@
 <div class="content-wrapper">
     <div class="content-header">
         <div class="container-fluid">
-            @if (session('create'))
+            @if (session('success'))
             <div class="alert alert-success" role="alert">
-                {{ session('create') }}
+                {{ session('success') }}
             </div>
             @endif
             @if (session('delete'))
@@ -139,7 +139,11 @@
                                     <a href="" class="btn btn-success">Update</a>
                                 </td>
                                 <td>
-                                    <a href="" class="btn btn-danger">Delete</a>
+                                    <form action="/universitet/{{$model->id}}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                    </form>
                                 </td>
                             </tr>
 
