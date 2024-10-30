@@ -7,3 +7,4 @@ Route::get('/', function () {
     return view('index');
 });
 Route::get('/',[UniversitetController::class,'index']);
+Route::get('/createuniver',[UniversitetController::class,'create']);

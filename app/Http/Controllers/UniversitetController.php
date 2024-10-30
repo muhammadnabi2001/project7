@@ -13,4 +13,16 @@ class UniversitetController extends Controller
         $universitets=Universitet::all();
         return view('index',['universitets'=>$universitets]);
     }
+    public function create(Request $request)
+    {
+        //dd($request->all());
+        $request->validate([
+            'name' => 'required|string|max:255'
+        ]);
+        $universitet=new Universitet();
+        $universitet->name=$request->name;
+        $universitet->save();
+        $universitets=Universitet::all();
+        return view('index',['universitets'=>$universitets]);
+    }
 }
